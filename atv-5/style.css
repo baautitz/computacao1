@@ -9,8 +9,8 @@
 }
 
 body {
-    background-color: #1f1f20;
-    color: #dfdfdb;
+    background-color: #181818;
+    color: #d3d3d3;
 
     min-height: 100vh;
 
@@ -22,8 +22,9 @@ body {
 }
 
 a {
-    color: #68b9d1;
+    color: #0078D4;
     text-decoration: none;
+    margin: 0;
 }
 
 p {
@@ -41,7 +42,7 @@ h1, h2 {
 }
 
 li {
-    margin-bottom: 10px;
+    margin: 10px 20px;
 }
 
 table, th, td {
