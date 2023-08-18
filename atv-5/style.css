@@ -43,6 +43,7 @@ h1, h2 {
 
 li {
     margin: 10px 20px;
+    text-align: justify;
 }
 
 table, th, td {
