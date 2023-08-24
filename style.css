@@ -39,7 +39,7 @@ body {
 
     background-color: #181818;
     border: 1px solid #4b4b4b;
-    border-radius: 20px;
+    border-radius: 8px;
 }
 
 h1 {
@@ -57,7 +57,7 @@ a {
     margin: 5px 10px;
 
     border: 1px solid #0078D4;
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 10px 15px;
 
     color: #0078D4;
