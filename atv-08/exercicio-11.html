@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 11</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 11.</h1>
+		<p>
+			● Faça uma estrutura if/else para verificar se um usuário pode dirigir
+		</p>
+		<p>
+			● Armazene em variáveis algumas informações sobre o usuário: idade, se tem
+			CNH
+		</p>
+		<p>● Se a idade for maior que 18 e não possuir CNH, exiba uma mensagem</p>
+		<p>● Se a idade for maior que 18 e tem CNH, exiba uma mensagem</p>
+		<p>● Se não tiver 18 nem CNH, exiba outra mensagem</p>
+		<script>
+			const idade = 18;
+			const temCNH = true;
+
+			if (idade >= 18 && temCNH) {
+				console.log("Pode dirigir!");
+			} else if (idade >= 18 && !temCNH) {
+				console.log("Não pode dirigir. :(");
+			} else {
+				console.log("Nem adianta pensar em dirigir ainda :/");
+			}
+		</script>
+	</body>
+</html>

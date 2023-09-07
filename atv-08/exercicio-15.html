@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 15</title>
+	</head>
+
+	<body>
+		<h1>Exercício 15 - Desafio</h1>
+		<p>● Verifique se o número é primo!</p>
+		<p>
+			● Um número primo, é um número natural, maior que 1 e apenas divisível por
+			si próprio e por 1
+		</p>
+		<p id="resultado" style="font-weight: bold">Resultado:</p>
+		<script>
+			function numeroPrimo(numero) {
+				let divisores = 0;
+				for (let i = 1; i <= numero / 2; i++) {
+					if (numero % i == 0) divisores++;
+				}
+
+				return divisores == 1;
+			}
+
+			const resultadoElem = document.getElementById("resultado");
+			let numero = parseFloat(prompt("Digite um número natural"));
+
+			if (numero < 0 || !Number.isInteger(numero)) {
+				resultadoElem.innerHTML += " Você não digitou um número válido.";
+			} else {
+				if (numeroPrimo(numero)) {
+					resultadoElem.innerHTML += ` O número ${numero} é primo!`;
+				} else {
+					resultadoElem.innerHTML += ` O número ${numero} não é primo!`;
+				}
+			}
+		</script>
+	</body>
+</html>
