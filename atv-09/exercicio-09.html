@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 9</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 9.</h1>
+		<p>
+			● Escreva uma função que receba dois números, o primeiro é a base e o
+			segundo a potência
+		</p>
+		<p>● Depois faça essa operação e retorne o resultado</p>
+		<p>● Por exemplo: 3, 2 = 9</p>
+		<script>
+			function potencia(base, pow) {
+				if (pow == 1) {
+					return base;
+				} else return base * potencia(base, pow - 1);
+			}
+
+			console.log(potencia(3, 3));
+		</script>
+	</body>
+</html>

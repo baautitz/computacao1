@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 8</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 8.</h1>
+		<p>● Escreva uma função que recebe uma string</p>
+		<p>● Se o texto conter mais de 10 caracteres imprima “Texto muito longo”</p>
+		<p>● Se conter menos, imprima “Texto dentro do limite”</p>
+		<script>
+			function textoLongo(texto) {
+				if (typeof texto !== "string") {
+					console.log("Você não inseriu uma string.");
+					return;
+				}
+
+				const tamanho = texto.length;
+				if (tamanho > 10)
+					console.log(`Texto muito longo: ${tamanho} caracteres.`);
+				else console.log(`Texto dentro do limite: ${tamanho} caracteres.`);
+			}
+
+			textoLongo(15);
+			textoLongo("Oi tudo bem?");
+			textoLongo("Olá!");
+		</script>
+	</body>
+</html>

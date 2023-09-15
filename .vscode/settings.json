@@ -1,0 +1,29 @@
+{
+	"prettier.useTabs": true,
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.minimap.enabled": false,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"terminal.integrated.env.windows": {},
+	"explorer.compactFolders": false,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"explorer.confirmDelete": false,
+	"[c]": {
+		"editor.defaultFormatter": "ms-vscode.cpptools"
+	},
+	"git.suggestSmartCommit": false,
+	"typescript.preferences.quoteStyle": "double",
+	"liveServer.settings.donotShowInfoMsg": true,
+	"editor.formatOnSave": true
+}

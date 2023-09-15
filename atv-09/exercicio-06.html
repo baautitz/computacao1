@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 6</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 6.</h1>
+		<p>● Escreva uma função que detecta o tipo de dado passado</p>
+		<p>● Verifque se é um: number, boolean ou string</p>
+		<p>● E retorne uma mensagem para cada tipo</p>
+		<p>● Execute uma função para cada caso</p>
+
+		<script>
+			function tipoDado(dado) {
+				switch (typeof dado) {
+					case "number":
+						return "Isso é um number";
+					case "boolean":
+						return "Isso é um boolean";
+					case "string":
+						return "Isso é uma string";
+					default:
+						return "Não sei o que é isso!";
+				}
+			}
+
+			console.log(tipoDado(1));
+			console.log(tipoDado("Olá!"));
+			console.log(tipoDado(true));
+			console.log(tipoDado());
+		</script>
+	</body>
+</html>
