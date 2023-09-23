@@ -1,0 +1,116 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-size: x-large;
+
+	background-color: #0f0f0f;
+	color: #dddddd;
+}
+
+body {
+	display: grid;
+
+	height: 100vh;
+	height: 100svh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#container-main {
+	display: grid;
+
+	width: 100%;
+
+	align-items: center;
+}
+
+#container-calculadora {
+	display: grid;
+
+	padding: 40px;
+	height: 100%;
+
+	background-color: #181818;
+	border: 1px solid #4b4b4b;
+	border-radius: 8px;
+
+	gap: 20px;
+}
+
+#container-calculadora > h1 {
+	align-self: flex-end;
+}
+
+#form-calculadora {
+	display: grid;
+}
+
+#form-calculadora > input {
+	height: 35px;
+
+	padding: 0px 10px;
+	margin-top: 10px;
+
+	border: 1px solid #4b4b4b;
+	border-radius: 5px;
+	font-size: 20px;
+
+	background-color: transparent;
+
+	color: #dddddd;
+
+	transition: all 0.15s;
+}
+
+#form-calculadora > input:focus {
+	border: 1px solid #dddddd;
+}
+
+#form-calculadora > button {
+	height: 35px;
+
+	margin-top: 20px;
+
+	border: 1px solid #0078d4;
+	border-radius: 5px;
+	font-size: 20px;
+
+	color: #0078d4;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: transparent;
+
+	transition: all 0.15s;
+}
+
+#form-calculadora > button:hover {
+	background-color: #0078d4;
+	color: #dddddd;
+}
+
+@media (min-width: 768px) {
+	#container-main {
+		justify-content: center;
+		padding: 25px;
+
+		height: 100%;
+	}
+
+	#container-calculadora {
+		height: auto;
+	}
+
+	#container-calculadora > h1 {
+		align-self: auto;
+	}
+}
