@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 26</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício</h1>
+		<p>● Rest operator</p>
+		<p>● Uma forma de uma função receber indefinidos parâmetros;</p>
+		<p>● O operador rest vai virar um array;</p>
+		<p>● O parâmetro é definido por: ...nome</p>
+		<script>
+			function imprimeNumeros(...args) {
+				for (let i = 0; i < args.length; i++) {
+					console.log(args[i]);
+				}
+			}
+
+			imprimeNumeros(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		</script>
+	</body>
+</html>

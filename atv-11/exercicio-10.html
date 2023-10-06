@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 10</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício</h1>
+		<p>● Além disso a mutação cria uma ligação entre os objetos (binding)</p>
+		<script>
+			let objetoA = {
+				pontos: 10,
+			};
+
+			objetoB = objetoA;
+
+			let objetoC = {
+				pontos: 10,
+			};
+
+			objetoA.pontos = 20;
+
+			console.log(objetoB.pontos);
+			console.log(objetoC.pontos);
+		</script>
+	</body>
+</html>

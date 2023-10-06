@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 6</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício</h1>
+		<p>● Podemos adicionar e deletar propriedades ao longo do nosso programa</p>
+
+		<script>
+			let carro = {
+				marca: "VW",
+				portas: 4,
+				eletrico: false,
+				motor: 1.0,
+			};
+
+			console.log(carro.portas);
+
+			delete carro.portas;
+
+			console.log(carro.portas);
+
+			carro.tetoSolar = true;
+
+			console.log(carro.tetoSolar);
+		</script>
+	</body>
+</html>

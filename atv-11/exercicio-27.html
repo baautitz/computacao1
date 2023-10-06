@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 27</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício</h1>
+		<p>● Destructuring com objetos</p>
+		<p>● Podemos definir variáveis com propriedades do objeto com uma notação diferente, chamada destructuring</p>
+		<script>
+			const pessoa = {
+				nome: "Vinicius",
+				sobrenome: "Tengaten",
+			};
+
+			const { nome: pNome, sobrenome: uNome } = pessoa;
+
+			console.log(pNome);
+			console.log(uNome);
+		</script>
+	</body>
+</html>
