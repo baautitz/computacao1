@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 5</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 5.</h1>
+		<p>● Crie uma classe conta bancaria</p>
+		<p>● Com as propriedades de saldo na conta corrente, saldo na conta poupança e juros da poupança</p>
+		<p>● Crie os métodos de depósito e saque, também um método para transferir dinheiro da poupança para a corrente</p>
+		<p>● Além disso crie uma conta especial que herda da conta normal</p>
+		<p>● Na conta especial os juros são dobrados da conta normal</p>
+		<script>
+			function printaConta(conta) {
+				console.log(`\nSaldo corrente: ${conta.getCorrente()}`);
+				console.log(`Saldo poupança: ${conta.getPoupanca()}`);
+			}
+
+			class ContaBancaria {
+				saldoCorrente = 0;
+				saldoPoupanca = 0;
+				juros = 0.02;
+
+				constructor(saldoCorrente, saldoPoupanca) {
+					this.saldoCorrente = saldoCorrente;
+					this.saldoPoupanca = saldoPoupanca;
+				}
+
+				transferePoupanca(valor) {
+					if (this.saldoCorrente >= valor && valor > 0) {
+						this.saldoCorrente -= valor;
+						this.saldoPoupanca += valor + valor * this.juros;
+						console.log(`Transferido R$ ${valor} para Poupança com ${this.juros * 100}% de juros.`);
+					} else console.log("Saldo na Corrente insuficiente ou valor inválido.");
+				}
+
+				transfereCorrente(valor) {
+					if (this.saldoPoupanca >= valor && valor > 0) {
+						this.saldoPoupanca -= valor;
+						this.saldoCorrente += valor;
+						console.log(`Transferido R$ ${valor} para Corrente.`);
+					} else console.log("Saldo na Poupança insuficiente ou valor inválido.");
+				}
+
+				sacar(valor) {
+					if (this.saldoCorrente >= valor && valor > 0) {
+						this.saldoCorrente -= valor;
+					} else console.log("Saldo insuficiente ou valor inserido inválido.");
+				}
+
+				depositar(valor) {
+					if (valor > 0) {
+						this.saldoCorrente += valor;
+					} else console.log("Valor deve ser um número positivo.");
+				}
+
+				getPoupanca() {
+					return this.saldoPoupanca;
+				}
+
+				getCorrente() {
+					return this.saldoCorrente;
+				}
+			}
+
+			class ContaEspecial extends ContaBancaria {
+				constructor(saldoCorrente, saldoPoupanca) {
+					super(saldoCorrente, saldoPoupanca);
+					this.juros *= 2;
+				}
+			}
+
+			let contaNormal = new ContaBancaria(700, 0);
+			printaConta(contaNormal);
+
+			contaNormal.transferePoupanca(750);
+			contaNormal.transferePoupanca(700);
+
+			printaConta(contaNormal);
+
+			contaNormal.transfereCorrente(750);
+			contaNormal.transfereCorrente(700);
+
+			printaConta(contaNormal);
+
+			console.log("\n----------------------------------------------------");
+
+			let constaEspecial = new ContaEspecial(1000, 0);
+			printaConta(constaEspecial);
+
+			constaEspecial.transferePoupanca(2000);
+			constaEspecial.transferePoupanca(1000);
+
+			printaConta(constaEspecial);
+
+			constaEspecial.transfereCorrente(2000);
+			constaEspecial.transfereCorrente(1000);
+
+			printaConta(constaEspecial);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 2</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 2.</h1>
+		<p>● Cria uma classe que simula um carrinho de compras de um e-commerce</p>
+		<p>● Propriedades itens, quantidade total, valor total</p>
+		<p>● Crie os métodos para adicionar e remover itens</p>
+		<script>
+			function printaCarrinho(carrinho) {
+				console.log(`Itens: ${carrinho.getItens()}`);
+				console.log(`Quantidade de itens: ${carrinho.getQtdeItens()}`);
+				console.log(`Valor total do carrinho: ${carrinho.getValorTotal()}`);
+			}
+
+			class Item {
+				nome = "";
+				valor = 0.0;
+
+				constructor(nome, valor) {
+					this.nome = nome;
+					this.valor = valor;
+				}
+
+				getValor() {
+					return this.valor;
+				}
+
+				getNome() {
+					return this.nome;
+				}
+			}
+
+			class Carrinho {
+				itens = [];
+				qtdeItens = 0;
+				valorTotal = 0;
+
+				constructor(...itens) {
+					for (let item of itens) {
+						this.itens.push(item);
+						this.valorTotal += item.getValor();
+						this.qtdeItens++;
+					}
+				}
+
+				getItens() {
+					return this.itens.map((i) => `${i.getNome()} - R$ ${i.getValor()}`).join(", ");
+				}
+
+				getQtdeItens() {
+					return this.qtdeItens;
+				}
+
+				getValorTotal() {
+					return this.valorTotal;
+				}
+
+				addItem(item) {
+					this.itens.push(item);
+					this.qtdeItens++;
+					this.valorTotal += item.getValor();
+				}
+
+				removerItem(nome) {
+					let index = this.itens.findIndex((i) => i.nome.toLowerCase() == nome.toLowerCase());
+					if (index >= 0) {
+						this.qtdeItens--;
+						this.valorTotal -= this.itens[index].getValor();
+						this.itens.splice(index, 1);
+					} else console.log("Item não encontrado.");
+				}
+			}
+
+			let item1 = new Item("goiaba", 5);
+			let item2 = new Item("banana", 2);
+			let item3 = new Item("caqui", 3);
+
+			let carrinho = new Carrinho(item1, item2, item3);
+			printaCarrinho(carrinho);
+
+			console.log("\nAdicionando um item no carrinho...\n");
+
+			let item4 = new Item("pera", 10);
+			carrinho.addItem(item4);
+
+			printaCarrinho(carrinho);
+
+			console.log("\nTentando remover um item inexistente no carrinho (maçã)...\n");
+			carrinho.removerItem("maçã");
+
+			console.log("\nRemovendo um item do carrinho...\n");
+			carrinho.removerItem("caqui");
+			printaCarrinho(carrinho);
+		</script>
+	</body>
+</html>

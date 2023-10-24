@@ -25,5 +25,6 @@
 	"git.suggestSmartCommit": false,
 	"typescript.preferences.quoteStyle": "double",
 	"liveServer.settings.donotShowInfoMsg": true,
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"prettier.printWidth": 150
 }

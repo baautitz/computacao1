@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 3</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 3.</h1>
+		<p>● Crie um objeto que simula um endereço de um cliente</p>
+		<p>● Propriedades: Rua, Bairro, Cidade e Estado</p>
+		<p>● No construtor o endereço já deve ser definido por completo</p>
+		<p>● Crie métodos para atualizar todas as propriedades</p>
+		<script>
+			class Endereco {
+				rua;
+				bairro;
+				cidade;
+				estado;
+
+				constructor(rua, bairro, cidade, estado) {
+					this.rua = rua;
+					this.bairro = bairro;
+					this.cidade = cidade;
+					this.estado = estado;
+				}
+
+				setRua(rua) {
+					this.rua = rua;
+				}
+
+				setBairro(bairro) {
+					this.bairro = bairro;
+				}
+
+				setCidade(cidade) {
+					this.cidade = cidade;
+				}
+
+				setEstado(estado) {
+					this.estado = estado;
+				}
+
+				getRua(rua) {
+					return this.rua;
+				}
+
+				getBairro(bairro) {
+					return this.bairro;
+				}
+
+				getCidade(cidade) {
+					return this.cidade;
+				}
+
+				getEstado(estado) {
+					return this.estado;
+				}
+
+				toString() {
+					return `${this.rua} - ${this.bairro}, ${this.cidade} - ${this.estado}`;
+				}
+			}
+
+			let end = new Endereco("Av. Paraná, 1162", "Centro", "Foz do Iguaçu", "PR");
+			console.log(end.toString());
+
+			end.setRua("Av. República Argentina, 2048");
+			end.setBairro("Vila Maracanã");
+			end.setCidade("Foz do Iguaçu");
+			end.setEstado("Paraná");
+
+			console.log(end.toString());
+		</script>
+	</body>
+</html>

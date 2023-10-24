@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 4</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 4.</h1>
+		<p>● Crie uma classe que simule um carro</p>
+		<p>● Propriedades: marca, cor, gasolina restante</p>
+		<p>● Crie um método de dirigir o carro, que vá diminuindo a gasolina gradativamente</p>
+		<p>● E um de abastecer para aumentar a gasolina quando necessário</p>
+		<script>
+			class Carro {
+				marca;
+				cor;
+				gasolina = 0;
+
+				constructor(marca, cor, gasolina) {
+					this.marca = marca;
+					this.cor = cor;
+					this.gasolina = gasolina;
+				}
+
+				dirigir() {
+					if (this.gasolina <= 0) {
+						console.log("Sem gasolina!");
+					} else {
+						this.gasolina--;
+						console.log(`Andou! Seu tanque tem ${this.gasolina} L restante.`);
+					}
+				}
+
+				abastecer() {
+					this.gasolina += 5;
+					console.log("Abasteceu 5 L!");
+				}
+			}
+
+			let meuCarro = new Carro("Volkswagen", "Gol", 2);
+			console.log(meuCarro);
+
+			meuCarro.dirigir();
+			meuCarro.dirigir();
+			meuCarro.dirigir();
+
+			meuCarro.abastecer();
+
+			meuCarro.dirigir();
+			meuCarro.dirigir();
+			meuCarro.dirigir();
+			meuCarro.dirigir();
+			meuCarro.dirigir();
+		</script>
+	</body>
+</html>

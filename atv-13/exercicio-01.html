@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 1</title>
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 1.</h1>
+		<p>● Crie uma classe que simula uma conta no banco (utilize a forma que preferir)</p>
+		<p>● Deve conter a propriedade saldo</p>
+		<p>● E os métodos deposito e saque</p>
+		<p>● Teste os métodos</p>
+		<script>
+			class Conta {
+				saldo = 0;
+
+				constructor(saldo) {
+					this.saldo = saldo;
+				}
+
+				sacar(valor) {
+					if (this.saldo >= valor && valor > 0) {
+						this.saldo -= valor;
+					} else console.log("Saldo insuficiente ou valor inserido inválido.");
+				}
+
+				depositar(valor) {
+					if (valor > 0) {
+						this.saldo += valor;
+					} else console.log("Valor deve ser um número positivo.");
+				}
+
+				getSaldo() {
+					return this.saldo;
+				}
+			}
+
+			let conta = new Conta(780);
+			console.log(`Valor inicial: ${conta.getSaldo()}`);
+
+			console.log("Tentativa de saque menor que o saldo... (800 reais)");
+			conta.saque(800);
+
+			console.log("Tentativa de saque de valor negativo... (-50 reais)");
+			conta.saque(-50);
+
+			conta.saque(700);
+			console.log(`Após saque de 700 reais: ${conta.getSaldo()}`);
+
+			console.log("Tentativa de depósito de valor negativo... (-50 reais)");
+			conta.deposito(-50);
+
+			conta.deposito(20);
+			console.log(`Após depósito de 20 reais: ${conta.getSaldo()}`);
+		</script>
+	</body>
+</html>
