@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 5</title>
+		<link rel="stylesheet" href="../style-exercicio.css" />
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 5.</h1>
+		<p>● Crie uma regex que valide nome de usuários no sistema</p>
+		<p>● Aceita letras de a-z, _ e - , números de 0-9, mínimo de 3 caracteres e máximo de 16</p>
+		<p>● Depois teste</p>
+		<script>
+			let rgx = /^[\w]{3,16}$/;
+			console.log(rgx.test("vinicius"));
+			console.log(rgx.test("Vin"));
+			console.log(rgx.test("Cius1"));
+			console.log(rgx.test("usuariocommaisde16"));
+			console.log(rgx.test("test_eee"));
+			console.log(rgx.test("2c"));
+		</script>
+	</body>
+</html>

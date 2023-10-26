@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 1</title>
+		<link rel="stylesheet" href="../style-exercicio.css" />
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 1.</h1>
+		<p>● Crie uma regex que aceite só letras maiúsculas</p>
+		<p>● Depois teste</p>
+		<script>
+			let rgx = /^[A-Z\s]+$/;
+			console.log(rgx.test("TESTE "));
+			console.log(rgx.test("Teste"));
+			console.log(rgx.test("teste TESTANDO"));
+		</script>
+	</body>
+</html>

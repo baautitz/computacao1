@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 3</title>
+		<link rel="stylesheet" href="../style-exercicio.css" />
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 3.</h1>
+		<p>● Crie uma regex que aceite a seguinte expressão “Marca: nomeDaMarca”</p>
+		<p>● Onde nomeDaMarca pode variar para Nike, Adidas, Puma, Asics</p>
+		<p>● Depois teste</p>
+		<script>
+			let rgx = /^(Marca:\s)(Nike|Adidas|Puma|Asics)$/;
+			console.log(rgx.test("Marca: Nike"));
+			console.log(rgx.test("Marca: Adidas"));
+			console.log(rgx.test("Marca: Puma"));
+			console.log(rgx.test("Marca: Asics"));
+			console.log(rgx.test("Asics"));
+			console.log(rgx.test("Marca:Asics"));
+		</script>
+	</body>
+</html>

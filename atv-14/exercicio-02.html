@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exercício 2</title>
+		<link rel="stylesheet" href="../style-exercicio.css" />
+	</head>
+
+	<body>
+		<h1>Abra o console para visualizar o Exercício 2.</h1>
+		<p>● Crie uma regex que só aceite strings terminadas com ID</p>
+		<p>● Depois teste</p>
+		<script>
+			let rgx = /[\s\w]+(ID)$/;
+			console.log(rgx.test("isso é uma frase"));
+			console.log(rgx.test("isso é uma frase com ID"));
+		</script>
+	</body>
+</html>
