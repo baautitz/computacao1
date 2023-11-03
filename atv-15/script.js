@@ -1,3 +1,41 @@
+const enviarButton = document.getElementById("send-button");
+const formInputDivs = document.getElementsByClassName("form-input");
+const resultTxtArea = document.getElementById("result");
+
+for (let div of formInputDivs) {
+	div.children[1].addEventListener("keyup", (e) => {
+		if (e.key == "Enter") enviarButton.click();
+	});
+}
+
+enviarButton.addEventListener("click", (e) => {
+	let incorrectValues = [];
+
+	const emptyInputs = getEmptyInputsLabels(formInputDivs);
+	if (emptyInputs.length > 0) {
+		for (let empty of emptyInputs) {
+			pushIfUnique(incorrectValues, empty);
+		}
+	}
+
+	const phoneInput = document.getElementById("celular");
+	if (!isValidPhone(phoneInput.value)) pushIfUnique(incorrectValues, "Celular");
+
+	const emailInput = document.getElementById("email");
+	if (!isValidEmail(emailInput.value)) pushIfUnique(incorrectValues, "E-mail");
+
+	if (incorrectValues.length > 0) {
+		incorrectInputsValuesAlert(incorrectValues);
+		return;
+	}
+
+	const obj = generateJSON(formInputDivs);
+
+	resultTxtArea.innerHTML = JSON.stringify(obj, null, 4);
+
+	e.preventDefault();
+});
+
 function pushIfUnique(arr, item) {
 	if (arr.indexOf(item) == -1) {
 		arr.push(item);
@@ -14,7 +52,7 @@ function isValidPhone(phone) {
 	return regex.test(phone);
 }
 
-function incorrectInputValuesAlert(input) {
+function incorrectInputsValuesAlert(input) {
 	if (Array.isArray(input)) {
 		alert(`Preencha corretamente: \n${input.map((i) => `\n- ${i}`).join("")}`);
 	} else {
@@ -22,7 +60,7 @@ function incorrectInputValuesAlert(input) {
 	}
 }
 
-function getEmptyInputNames(formInputDivs) {
+function getEmptyInputsLabels(formInputDivs) {
 	let emptyInputs = [];
 	for (let div of formInputDivs) {
 		const formLabel = div.children[0];
@@ -64,39 +102,15 @@ function getClassificacaoIMC(imc) {
 	}
 }
 
-const enviarButton = document.getElementById("send-button");
-enviarButton.addEventListener("click", (e) => {
-	let incorrectValues = [];
+function generateJSON(formInputDivs) {
 	let obj = {};
-
-	const formInputDivs = document.getElementsByClassName("form-input");
-
-	const emptyInputs = getEmptyInputNames(formInputDivs);
-	if (emptyInputs.length > 0) {
-		for (let empty of emptyInputs) {
-			pushIfUnique(incorrectValues, empty);
-		}
-	}
-
-	const phoneInput = document.getElementById("celular");
-	if (!isValidPhone(phoneInput.value)) pushIfUnique(incorrectValues, "Celular");
-
-	const emailInput = document.getElementById("email");
-	if (!isValidEmail(emailInput.value)) pushIfUnique(incorrectValues, "E-mail");
 
 	for (let div of formInputDivs) {
 		obj[div.children[1].name] = div.children[1].value;
 	}
+
 	obj["imc"] = calculaIMC(obj.peso, obj.altura);
 	obj["imc_class"] = getClassificacaoIMC(obj.imc);
 
-	if (incorrectValues.length > 0) {
-		incorrectInputValuesAlert(incorrectValues);
-		return;
-	}
-
-	const resultTxtArea = document.getElementById("result");
-	resultTxtArea.innerHTML = JSON.stringify(obj, null, 4);
-
-	e.preventDefault();
-});
+	return obj;
+}
