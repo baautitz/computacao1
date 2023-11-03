@@ -1,14 +1,32 @@
-const enviarButton = document.getElementById("send-button");
+const sendButton = document.getElementById("send-button");
+const formEl = document.querySelector("form");
+
 const formInputDivs = document.getElementsByClassName("form-input");
 const resultTxtArea = document.getElementById("result");
 
-for (let div of formInputDivs) {
-	div.children[1].addEventListener("keyup", (e) => {
-		if (e.key == "Enter") enviarButton.click();
-	});
-}
+formEl.addEventListener("keyup", (e) => {
+	if (e.target.type === "button") return;
+	if (e.key !== "Enter") return;
 
-enviarButton.addEventListener("click", (e) => {
+	sendButton.click();
+});
+
+sendButton.addEventListener("click", (e) => {
+	const incorrectValues = validateForm();
+
+	if (incorrectValues.length > 0) {
+		incorrectInputsValuesAlert(incorrectValues);
+		return;
+	}
+
+	const obj = generateJSON(formInputDivs);
+
+	resultTxtArea.innerHTML = JSON.stringify(obj, null, 4);
+
+	e.preventDefault();
+});
+
+function validateForm() {
 	let incorrectValues = [];
 
 	const emptyInputs = getEmptyInputsLabels(formInputDivs);
@@ -24,17 +42,8 @@ enviarButton.addEventListener("click", (e) => {
 	const emailInput = document.getElementById("email");
 	if (!isValidEmail(emailInput.value)) pushIfUnique(incorrectValues, "E-mail");
 
-	if (incorrectValues.length > 0) {
-		incorrectInputsValuesAlert(incorrectValues);
-		return;
-	}
-
-	const obj = generateJSON(formInputDivs);
-
-	resultTxtArea.innerHTML = JSON.stringify(obj, null, 4);
-
-	e.preventDefault();
-});
+	return incorrectValues;
+}
 
 function pushIfUnique(arr, item) {
 	if (arr.indexOf(item) == -1) {
@@ -53,11 +62,7 @@ function isValidPhone(phone) {
 }
 
 function incorrectInputsValuesAlert(input) {
-	if (Array.isArray(input)) {
-		alert(`Preencha corretamente: \n${input.map((i) => `\n- ${i}`).join("")}`);
-	} else {
-		alert(`Preencha corretamente: \n\n- ${input}`);
-	}
+	alert(`Preencha corretamente: \n${input.map((i) => `\n- ${i}`).join("")}`);
 }
 
 function getEmptyInputsLabels(formInputDivs) {

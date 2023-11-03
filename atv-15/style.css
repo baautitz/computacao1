@@ -118,7 +118,8 @@ form>button {
     color: white;
 }
 
-form>button:hover {
+form>button:hover, 
+form>button:focus {
     cursor: pointer;
     background-color: #018a3571;
 }
