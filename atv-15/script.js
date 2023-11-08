@@ -52,7 +52,7 @@ function pushIfUnique(arr, item) {
 }
 
 function isValidEmail(email) {
-	const regex = /^[\w\-\.]{1,64}@[a-zA-z]{1,250}(\.[a-zA-Z]{2,4}|\.[a-zA-Z]{2,4}\.[a-zA-Z]{2})$/;
+	const regex = /^[\w\-\.]{1,64}@[a-zA-Z]{1,250}(\.[a-zA-Z]{2,4}|\.[a-zA-Z]{2,4}\.[a-zA-Z]{2})$/;
 	return regex.test(email);
 }
 
